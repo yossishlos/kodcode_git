@@ -14,3 +14,7 @@ def get_soldier_by_id(id: int):
 @app.post("/soldiers")
 def add_soldier(new_soldier: dict):
     return io.add_soldier(new_soldier)
+
+@app.put("/soldiers/{id}")
+def update_soldier(id: int, new_data: dict):
+    return io.update_soldier(id, new_data)

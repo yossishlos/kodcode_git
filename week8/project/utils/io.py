@@ -24,3 +24,16 @@ def add_soldier(new_soldier: dict):
         json.dump(soldiers, file, indent=4)
     
     return {"message": "good"}
+
+def update_soldier(id: int, new_data: dict):
+    soldiers = get_soldiers()
+    for soldier in soldiers:
+        if soldier["id"] == id:
+            
+            soldier.update(new_data)
+
+            with open(data, "w", encoding="utf-8") as file:
+                json.dump(soldiers, file, indent=4)
+            return {"message": "very good"}
+        
+    return {"message": "soldier not found"}
